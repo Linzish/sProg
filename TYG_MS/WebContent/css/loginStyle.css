@@ -1,0 +1,41 @@
+.col-center-block {
+    float: none;
+    display: block;
+    margin: auto;
+    padding: 10px;
+    border-radius: 6px;
+    background-color: rgba(255,240,245,0.6);
+}
+.login-center {
+	height: 100vh;
+}
+#adminForm {
+	display:none;
+}
+.mainForm {
+	position: absolute;
+	bottom: 0;
+}
+.bg {
+	background: url("../img/loginbg.jpg");
+	background-repeat:no-repeat ;
+	background-position: center;
+    background-size: 100% 100%;
+}
+.bg-blur {
+	filter: url(blur.svg#blur); /* FireFox, Chrome, Opera */
+    -webkit-filter: blur(10px); /* Chrome, Opera */
+    -moz-filter: blur(10px);
+    -ms-filter: blur(10px);    
+    filter: blur(10px);
+    filter: progid:DXImageTransform.Microsoft.Blur(PixelRadius=10, MakeShadow=false); /* IE6~IE9 */
+}
+.myactive {
+	color: #000;
+	background-color: #FFFFE0;
+}
+.title {
+	position: absolute;
+	top: 10%;
+	left: 10%;
+}

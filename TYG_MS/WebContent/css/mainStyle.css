@@ -1,0 +1,23 @@
+.mdiv {
+	display:none;
+}
+.mb {
+	margin-top:12px;
+	background-color: #FFA500;
+}
+.main-container {
+	margin-right: 0;
+	margin-left: 0; 
+}
+.bg {
+	background-color: #F0F8FF;
+}
+.mul {
+	display:none;
+}
+.list-group-item-action:focus {
+	background-color: #FAFAD2;
+}
+.list-group-item-action:hover {
+	
+}

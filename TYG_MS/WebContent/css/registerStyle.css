@@ -1,0 +1,17 @@
+.col-center-block {
+    float: none;
+    display: block;
+    margin: auto;
+    padding: 10px;
+    border-radius: 6px;
+    background-color: rgba(255,240,245,0.6);
+}
+.tocenter {
+	height: 100vh;
+}
+.bg {
+	background: url("../img/registerbg.jpg");
+	background-repeat:no-repeat ;
+	background-position: center;
+    background-size: 100% 100%;
+}

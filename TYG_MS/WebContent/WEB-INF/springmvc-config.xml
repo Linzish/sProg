@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:c="http://www.springframework.org/schema/c"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:resources="http://www.springframework.org/schema/resources"
+	xsi:schemaLocation="
+			http://www.springframework.org/schema/beans 
+			http://www.springframework.org/schema/beans/spring-beans.xsd
+			http://www.springframework.org/schema/mvc
+			http://www.springframework.org/schema/mvc/spring-mvc.xsd
+			http://www.springframework.org/schema/context
+			http://www.springframework.org/schema/context/spring-context.xsd
+			http://www.springframework.org/schema/resources
+			http://www.springframework.org/schema/resources/spring-resources.xsd">
+			
+	<!-- spring可以自动去扫描base-pack下面的包获知子包下面的java文件 ，
+		如果扫描到有相关的注解类，则把这些类注册为bean-->
+	<context:component-scan base-package="me.unc.tyg_ms.controller"/>
+	<!-- 默认装配方案 -->
+	<mvc:annotation-driven/>
+	<!-- 默认资源处理 -->
+	<mvc:default-servlet-handler/>
+	
+	<!-- 配置静态资源 -->
+	<mvc:resources location="/js/" mapping="/js/**"/>
+	<mvc:resources location="/css/" mapping="/css/**"/>
+	<mvc:resources location="/img/" mapping="/img/**"/>
+	<!-- 视图解析器  p:prefix属性表示前缀  p:suffix 表示后缀 -->
+	<bean id="viewResolver" 
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver" 
+		p:prefix="/WEB-INF/content/" p:suffix=".jsp"/>
+	<!-- mvc拦截器 -->
+	
+	<!-- 文件上传配置 -->
+	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<!-- 上传文件大小上限（10mb） -->
+		<property name="maxUploadSize">
+			<value>10485760</value>
+		</property>
+		<property name="defaultEncoding">
+			<value>UTF-8</value>
+		</property>
+	</bean>
+	<!-- 拦截器 -->
+	<mvc:interceptors>
+		<mvc:interceptor>
+			<mvc:mapping path="/**"/><!-- 登录拦截器 -->
+			<bean id="loginInterceptor" class="me.unc.tyg_ms.interceptor.LoginInterceptor"/>
+		</mvc:interceptor>
+	</mvc:interceptors>
+</beans>			
